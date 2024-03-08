@@ -5,7 +5,6 @@ public class MouseHover : MonoBehaviour
     public MouseDetector mouseDetector;
     public float targetHeight = 0.001f, treshold = 1.0f;
     private Vector3 destination, originalPosition;
-    //private bool isRising = false;
 
     void Start()
     {
