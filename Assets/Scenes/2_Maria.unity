@@ -534,7 +534,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0, b: 0.15329313, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -572,7 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
   targetHeight: 5
+  treshold: 1
 --- !u!1 &557193120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
   targetHeight: 5
+  treshold: 1
 --- !u!212 &735886383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1071,7 +1075,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0.75322974, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1574,7 +1578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
   targetHeight: 5
+  treshold: 1
 --- !u!212 &1095337387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1616,7 +1622,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2172,6 +2178,7 @@ Transform:
   - {fileID: 735886384}
   - {fileID: 2012582778}
   - {fileID: 1095337388}
+  - {fileID: 1522623614}
   m_Father: {fileID: 2064427673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511327748
@@ -2276,6 +2283,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1522623613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522623614}
+  - component: {fileID: 1522623615}
+  m_Layer: 0
+  m_Name: MouseDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1522623614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522623613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1491369599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522623615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522623613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c48b4a8bb6f1b4ba61ad6fefefb5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1539674383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,7 +2412,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1657335756}
   - component: {fileID: 1657335755}
-  - component: {fileID: 1657335754}
   m_Layer: 0
   m_Name: MixedPotion
   m_TagString: Untagged
@@ -2369,19 +2419,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1657335754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657335753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetHeight: 5
 --- !u!212 &1657335755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2479,7 +2516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
   targetHeight: 5
+  treshold: 1
 --- !u!212 &2012582777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2521,7 +2560,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0, g: 0.2529087, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

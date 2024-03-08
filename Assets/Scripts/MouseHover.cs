@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class Poison : MonoBehaviour
+public class MouseHover : MonoBehaviour
 {
-    public float targetHeight = 0.001f;
+    public MouseDetector mouseDetector;
+    public float targetHeight = 0.001f, treshold = 1.0f;
     private Vector3 destination, originalPosition;
     //private bool isRising = false;
 
@@ -14,15 +15,8 @@ public class Poison : MonoBehaviour
 
     void Update()
     {
-        // Get the mouse position in screen space
-        Vector3 mousePosition = Input.mousePosition;
-
-        // Convert mouse position from screen space to world space
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        worldMousePosition.z = 0f; // Assuming the objects are on the same z-plane
-
         // Compare the mouse position with the object position
-        if (Vector3.Distance(worldMousePosition, originalPosition) < 1.0f)
+        if (mouseDetector.isMouseDetected(originalPosition, treshold))
         {
             RiseObject();
         }
