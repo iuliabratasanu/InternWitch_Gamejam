@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDetector: {fileID: 1522623615}
+  mouseClick: {fileID: 1522623616}
   targetHeight: 5
   treshold: 1
 --- !u!114 &380319208
@@ -590,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseDetector: {fileID: 1522623615}
   treshold: 1
+  isClicked: 0
 --- !u!1 &464377522
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,8 +602,6 @@ GameObject:
   m_Component:
   - component: {fileID: 464377523}
   - component: {fileID: 464377526}
-  - component: {fileID: 464377525}
-  - component: {fileID: 464377524}
   m_Layer: 0
   m_Name: PotionMockup
   m_TagString: Untagged
@@ -624,35 +624,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491369599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &464377524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464377522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2d565dd6fb6804587ecd803921c297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseDetector: {fileID: 1522623615}
-  treshold: 1
---- !u!114 &464377525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464377522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4571a73440b508b4dad7e6c24a5e72f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseDetector: {fileID: 1522623615}
-  targetHeight: 5
-  treshold: 1
 --- !u!212 &464377526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1142,6 +1113,7 @@ GameObject:
   - component: {fileID: 735886384}
   - component: {fileID: 735886383}
   - component: {fileID: 735886382}
+  - component: {fileID: 735886385}
   m_Layer: 0
   m_Name: Potion2
   m_TagString: Untagged
@@ -1162,6 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDetector: {fileID: 1522623615}
+  mouseClick: {fileID: 1522623616}
   targetHeight: 5
   treshold: 1
 --- !u!212 &735886383
@@ -1231,6 +1204,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491369599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &735886385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735886381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2d565dd6fb6804587ecd803921c297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
+  treshold: 1
+  isClicked: 0
 --- !u!1 &804585561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1677,7 @@ GameObject:
   - component: {fileID: 1095337388}
   - component: {fileID: 1095337387}
   - component: {fileID: 1095337386}
+  - component: {fileID: 1095337389}
   m_Layer: 0
   m_Name: Potion4
   m_TagString: Untagged
@@ -1709,6 +1698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDetector: {fileID: 1522623615}
+  mouseClick: {fileID: 1522623616}
   targetHeight: 5
   treshold: 1
 --- !u!212 &1095337387
@@ -1778,6 +1768,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491369599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095337389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095337385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2d565dd6fb6804587ecd803921c297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
+  treshold: 1
+  isClicked: 0
 --- !u!1 &1140551849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,6 +2429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1522623614}
   - component: {fileID: 1522623615}
+  - component: {fileID: 1522623616}
   m_Layer: 0
   m_Name: Helper
   m_TagString: Untagged
@@ -2458,6 +2464,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c48b4a8bb6f1b4ba61ad6fefefb5ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1522623616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522623613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2d565dd6fb6804587ecd803921c297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
+  treshold: 1
+  isClicked: 0
 --- !u!1 &1539674383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,6 +2649,7 @@ GameObject:
   - component: {fileID: 2012582778}
   - component: {fileID: 2012582777}
   - component: {fileID: 2012582776}
+  - component: {fileID: 2012582779}
   m_Layer: 0
   m_Name: Potion3
   m_TagString: Untagged
@@ -2648,6 +2670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseDetector: {fileID: 1522623615}
+  mouseClick: {fileID: 1522623616}
   targetHeight: 5
   treshold: 1
 --- !u!212 &2012582777
@@ -2717,6 +2740,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1491369599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012582779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012582775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2d565dd6fb6804587ecd803921c297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseDetector: {fileID: 1522623615}
+  treshold: 1
+  isClicked: 0
 --- !u!1 &2053475723
 GameObject:
   m_ObjectHideFlags: 0

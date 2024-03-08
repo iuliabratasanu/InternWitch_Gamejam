@@ -3,6 +3,7 @@ using UnityEngine;
 public class MouseHover : MonoBehaviour
 {
     public MouseDetector mouseDetector;
+    public MouseClick mouseClick;
     public float targetHeight = 0.001f, treshold = 1.0f;
     private Vector3 destination, originalPosition;
 
@@ -14,15 +15,32 @@ public class MouseHover : MonoBehaviour
 
     void Update()
     {
-        // Compare the mouse position with the object position
-        if (mouseDetector.isMouseDetected(originalPosition, treshold))
-        {
-            RiseObject();
-        }
-        else
-        {
-            ReturnObject();
-        }
+        // // Compare the mouse position with the object position
+        // if (mouseDetector.isMouseDetected(originalPosition, treshold))
+        // {
+        //     //RiseObject();
+        //     if (!mouseClick.isClicked)
+        //     {
+        //         Debug.Log("Nu ridic");
+        //     //     ReturnObject();
+        //     }
+        //     else
+        //     {
+        //         Debug.Log("Ridic");
+        //     }
+        // }
+        // else
+        // {
+        //     if (!mouseClick.isClicked)
+        //     {
+        //         Debug.Log("Nu mut inapoi");
+        //     //     ReturnObject();
+        //     }
+        //     else
+        //     {
+        //         Debug.Log("Mut inapoi");
+        //     }
+        // }
     }
 
     void RiseObject()
