@@ -48,7 +48,7 @@ public class Draggable : MonoBehaviour
                 potionAdded = true;
 
                 // Retrieve the potion's tag and notify the GameManager
-                if (gameObject.CompareTag("BluePotion") || gameObject.CompareTag("YellowPotion") || gameObject.CompareTag("RedPotion"))
+                if (gameObject.CompareTag("B") || gameObject.CompareTag("Y") || gameObject.CompareTag("R"))
                 {
                     // Retrieve the potion's tag
                     string potionTag = gameObject.tag;

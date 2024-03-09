@@ -9,6 +9,9 @@ TagManager:
   - RedPotion
   - BluePotion
   - YellowPotion
+  - R
+  - B
+  - Y
   layers:
   - Default
   - TransparentFX

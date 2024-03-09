@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public ClientReaction clientReaction;
+    public ClientManager clientManager;
     private List<string> addedPotions = new List<string>();
     private int experience = 0;
     private int level = 1;
 
     // Define the fixed set of initial orders for the first level
-    private string[] currentLevelOrders = { "green", "purple", "orange" };
+    private string[] currentLevelOrders = { "orange order yellow red", "green order bnlue yellow ", "purple order red blue" };
 
     private void Start()
     {
@@ -19,15 +19,12 @@ public class GameManager : MonoBehaviour
 
     private void NextClient()
     {
-        string clientInitialOrder = GetRandomInitialOrder();
-        if (clientReaction != null)
-        {
-            clientReaction.SetInitialOrder(clientInitialOrder);
-        }
+        clientManager.GetRandomOrder();
     }
 
     public void AddPotion(string potionTag)
     {
+
         addedPotions.Add(potionTag);
 
         if (addedPotions.Count >= 2)
@@ -36,13 +33,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public ClientManager.PotionType StringToPotionType(string tag)
+    {
+        if (tag == "RB" || tag == "BR")
+            return ClientManager.PotionType.purplePotion;
+
+        if (tag == "RY" || tag == "YR")
+            return ClientManager.PotionType.orangePotion;
+
+        if (tag == "YB" || tag == "BY")
+            return ClientManager.PotionType.greenPotion;
+        return ClientManager.PotionType.errorPotion;
+    }
+
+    public void CheckIfMixedPotionIsRequested(string mixedPotion)
+    {
+        if (StringToPotionType(mixedPotion) == clientManager.currentOrder.desiredPotion)
+        {
+            Debug.Log("bn");
+            ApplyPotionEffects(mixedPotion);
+        }
+        else
+        {
+            Debug.Log("nuibn");
+        }
+    }
+
+
     private void MixPotions()
     {
-        string lastPotion = addedPotions[addedPotions.Count - 1];
-        string secondToLastPotion = addedPotions[addedPotions.Count - 2];
+        string first = addedPotions[addedPotions.Count - 1];
+        string second = addedPotions[addedPotions.Count - 2];
 
-        string mixedPotion = Mix(lastPotion, secondToLastPotion);
-        ApplyPotionEffects(mixedPotion);
+        string mixedPotion = Mix(first, second);
+
+        CheckIfMixedPotionIsRequested(mixedPotion);
 
         addedPotions.Clear();
 
@@ -68,23 +93,15 @@ public class GameManager : MonoBehaviour
     {
         // Add your logic for mixing potions and determining the result
         // For simplicity, returning a combined string, modify this based on your game logic
+
+        Debug.Log("Mixed Potion: " + potion1 + potion2);
+
         return potion1 + potion2;
     }
 
     private void ApplyPotionEffects(string mixedPotion)
     {
-        Debug.Log("Mixed Potion: " + mixedPotion);
 
-        if (clientReaction != null)
-        {
-            clientReaction.ReactToPotion(mixedPotion);
-        }
-    }
-
-    private string GetRandomInitialOrder()
-    {
-        // Return a random initial order from the fixed set for the first level
-        int randomIndex = Random.Range(0, currentLevelOrders.Length);
-        return currentLevelOrders[randomIndex];
+        clientManager.ReactToPotion();
     }
 }
