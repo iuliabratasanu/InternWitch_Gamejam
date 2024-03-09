@@ -8,6 +8,9 @@ public class Draggable : MonoBehaviour
     private Vector3 initialPosition;
     private bool potionAdded = false;
 
+    // Add a reference to the GameManager or another manager script to handle game logic
+    public GameManager gameManager;
+
     private void Start()
     {
         // Initialize the initial position
@@ -44,8 +47,21 @@ public class Draggable : MonoBehaviour
                 // Potion is over the pot
                 potionAdded = true;
 
-                // Add logic to handle storing information about the added potion
-                // You can store this information in a separate script or manager
+                // Retrieve the potion's tag and notify the GameManager
+                if (gameObject.CompareTag("BluePotion") || gameObject.CompareTag("YellowPotion") || gameObject.CompareTag("RedPotion"))
+                {
+                    // Retrieve the potion's tag
+                    string potionTag = gameObject.tag;
+
+                    // Notify the GameManager about the added potion
+                    if (gameManager != null)
+                    {
+                        gameManager.AddPotion(potionTag);
+                    }
+
+                    // Reset its position if the potion was added
+                    transform.position = initialPosition;
+                }
 
                 break; // Exit the loop since we found the pot
             }
@@ -55,14 +71,7 @@ public class Draggable : MonoBehaviour
         if (!potionAdded)
         {
             transform.position = initialPosition;
-
-        }
-        
-        // If the potion was added, reset its position
-        if (potionAdded)
-        {
-            Debug.Log("Potiunea este adaugata.");
-            transform.position = initialPosition;
         }
     }
+
 }

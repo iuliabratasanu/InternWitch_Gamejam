@@ -6,6 +6,9 @@ TagManager:
   tags:
   - IntroMusic
   - Pot
+  - RedPotion
+  - BluePotion
+  - YellowPotion
   layers:
   - Default
   - TransparentFX
