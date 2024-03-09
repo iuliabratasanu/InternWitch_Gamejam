@@ -27,51 +27,67 @@ public class Draggable : MonoBehaviour
         // Update the offset when the potion is picked up
         mousePositionOffset = transform.position - GetMouseWorldPosition();
         potionAdded = false; // Reset the flag when the potion is picked up
+
+        // Check if the player clicked the story page
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Page"))
+            {
+                //Vlad -> sa se deschida un UI cu o poza si sa aibe in colt dreapta sus o posibilitate sa se inchida
+            }
+
+            //if (collider.CompareTag("Book"))
+           // {
+            //    //Vlad -> sa se deschida un UI cu o poza si sa aibe in colt dreapta sus o posibilitate sa se inchida
+           // }
+        }
     }
 
     private void OnMouseDrag()
-    {
-        // Update the position to follow the cursor with the initial offset
-        transform.position = GetMouseWorldPosition() + mousePositionOffset;
-    }
-
-    private void OnMouseUp()
-    {
-        // Check if the potion is over the pot
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
-
-        foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Pot"))
+            // Update the position to follow the cursor with the initial offset
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+        }
+
+        private void OnMouseUp() {
             {
-                // Potion is over the pot
-                potionAdded = true;
+                // Check if the potion is over the pot
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.1f);
 
-                // Retrieve the potion's tag and notify the GameManager
-                if (gameObject.CompareTag("B") || gameObject.CompareTag("Y") || gameObject.CompareTag("R"))
+                foreach (Collider2D collider in colliders)
                 {
-                    // Retrieve the potion's tag
-                    string potionTag = gameObject.tag;
-
-                    // Notify the GameManager about the added potion
-                    if (gameManager != null)
+                    if (collider.CompareTag("Pot"))
                     {
-                        gameManager.AddPotion(potionTag);
-                    }
+                        // Potion is over the pot
+                        potionAdded = true;
 
-                    // Reset its position if the potion was added
-                    transform.position = initialPosition;
+                        // Retrieve the potion's tag and notify the GameManager
+                        if (gameObject.CompareTag("B") || gameObject.CompareTag("Y") || gameObject.CompareTag("R"))
+                        {
+                            // Retrieve the potion's tag
+                            string potionTag = gameObject.tag;
+
+                            // Notify the GameManager about the added potion
+                            if (gameManager != null)
+                            {
+                                gameManager.AddPotion(potionTag);
+                            }
+
+                            // Reset its position if the potion was added
+                            transform.position = initialPosition;
+                        }
+
+                        break; // Exit the loop since we found the pot
+                    }
                 }
 
-                break; // Exit the loop since we found the pot
+                // If the potion was not added, reset its position
+                if (!potionAdded)
+                {
+                    transform.position = initialPosition;
+                }
             }
-        }
 
-        // If the potion was not added, reset its position
-        if (!potionAdded)
-        {
-            transform.position = initialPosition;
         }
     }
-
-}
