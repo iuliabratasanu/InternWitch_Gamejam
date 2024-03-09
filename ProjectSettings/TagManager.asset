@@ -39,8 +39,23 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: Perete
+    uniqueID: 1875112873
+    locked: 0
+  - name: RaftPotiuni
     uniqueID: 1194031177
+    locked: 0
+  - name: CaracterPrincipal
+    uniqueID: 71350389
+    locked: 0
+  - name: Potiuni
+    uniqueID: 1495605823
+    locked: 0
+  - name: MasaVraji
+    uniqueID: 332345333
+    locked: 0
+  - name: Clienti
+    uniqueID: 3298940067
     locked: 0
   - name: Default
     uniqueID: 0
