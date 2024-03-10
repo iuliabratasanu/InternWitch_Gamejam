@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro; // Import TextMeshPro namespace
 
 public class GameManager : MonoBehaviour
 {
     public ClientManager clientManager;
     private List<string> addedPotions = new List<string>();
+
+    public TMP_Text experienceText;
     private int experience = 0;
     private int level = 1;
 
@@ -15,8 +19,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NextClient();
+        UpdateExperienceText(); // Update the TMP text when the game starts
     }
 
+    private void Update()
+    {
+
+    }
     private void NextClient()
     {
         clientManager.GetRandomOrder();
@@ -52,6 +61,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("bn");
             ApplyPotionEffects(mixedPotion);
+            experience += 10;
+            UpdateExperienceText(); // Update the TMP text when experience changes
         }
         else
         {
@@ -70,18 +81,17 @@ public class GameManager : MonoBehaviour
 
         addedPotions.Clear();
 
-        experience += 10;
-
-        if (experience >= 20 && level == 1)
+        if (experience >= 50 && level == 1)
         {
             level = 2;
             Debug.Log("Level 2 unlocked!");
             // Add logic to unlock new features or potions for level 2
         }
-        else if (experience >= 40 && level == 2)
+        else if (experience >= 100 && level == 2)
         {
             level = 3;
             Debug.Log("Level 3 unlocked! Ending scene triggered.");
+            SceneManager.LoadScene(3);
             // Add logic to transition to the ending scene or the next scene for level 3
         }
 
@@ -102,5 +112,13 @@ public class GameManager : MonoBehaviour
     {
 
         clientManager.ReactToPotion();
+
+
+    }
+
+    private void UpdateExperienceText()
+    {
+        // Update the TMP text with the current experience value
+        experienceText.text = "Experience: " + experience + "/100";
     }
 }
