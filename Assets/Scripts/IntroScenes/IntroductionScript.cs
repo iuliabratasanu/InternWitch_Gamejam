@@ -29,7 +29,7 @@ public class IntroductionScript : MonoBehaviour
     {
         player_name = inputField.text;
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void Return()
