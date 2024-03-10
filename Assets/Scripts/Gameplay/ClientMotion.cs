@@ -16,6 +16,8 @@ public class ClientMotion : MonoBehaviour
     // Reference to the TextMeshPro component
     public GameObject orderDisplayPrefab;
     private GameObject currentOrderDisplay;
+    public int lastKnownNumberOfOrders;
+
 
     void Start()
     {
@@ -40,7 +42,7 @@ public class ClientMotion : MonoBehaviour
 
 
 
-        void Update()
+    void Update()
     {
         // TO DO : cand phase e -1 sau cv de genul, trb sa sa updatateze orderul clientului curent
 
@@ -76,18 +78,20 @@ public class ClientMotion : MonoBehaviour
 
 
 
-                if (!clientManager.orderSatisfied)
-                {
-                    // Display the order text above the client's head
-                    DisplayOrderText(clientManager.currentOrder.requestName);
-                }
-                else
-                {
-                    clientManager.GetRandomOrder();
-                    // Call a function to hide the order display.
-                    HideOrderDisplay();
-                }
-            
+            if (lastKnownNumberOfOrders == clientManager.nrOfSuccesfulOrders)
+            {
+                // Display the order text above the client's head
+                DisplayOrderText(clientManager.currentOrder.requestName);
+            }
+            else
+            {
+                lastKnownNumberOfOrders = clientManager.nrOfSuccesfulOrders;
+                clientManager.GetRandomOrder();
+                // Call a function to hide the order display.
+                HideOrderDisplay();
+                phase = 3;
+            }
+
 
 
         }
@@ -101,7 +105,7 @@ public class ClientMotion : MonoBehaviour
         if (phase == 2 && MyClient.transform.position.x > 18.2)
         {
             MyClient.transform.position = new Vector3(-5.5f, MyClient.transform.position.y, MyClient.transform.position.z);
-            phase = 3;
+            phase = 0;
 
             //TO DO: trb adaugat o functie Invoke care sa astepte 5sec sau cv de genul, apoi phase == 0;
 
@@ -114,7 +118,7 @@ public class ClientMotion : MonoBehaviour
         {
 
             TextMeshProUGUI orderText = currentOrderDisplay.GetComponentInChildren<TextMeshProUGUI>();
-            
+
             orderText.text = orderTextContent;
             currentOrderDisplay.SetActive(true);
         }

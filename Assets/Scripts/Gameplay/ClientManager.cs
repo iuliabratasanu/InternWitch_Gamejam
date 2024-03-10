@@ -19,8 +19,7 @@ public class ClientManager : MonoBehaviour
     [SerializeField] public Order currentOrder;
     [SerializeField] public Order[] possibleOrders = new Order[3];
     public Sprite[] spriteList;
-
-
+    public int nrOfSuccesfulOrders;
     private void Start()
     {
         possibleOrders = new Order[possibleOrders.Length];
@@ -43,9 +42,10 @@ public class ClientManager : MonoBehaviour
 
     public void ReactToPotion()
     {
+        nrOfSuccesfulOrders++;
         if (currentOrder.desiredPotion == PotionType.purplePotion)
         {
-            MakeClientPrettier();
+            TransformToMonkey();
         }
         if (currentOrder.desiredPotion == PotionType.greenPotion)
         {
@@ -53,7 +53,8 @@ public class ClientManager : MonoBehaviour
         }
         if (currentOrder.desiredPotion == PotionType.orangePotion)
         {
-            TransformToMonkey();
+            
+            MakeClientPrettier();
         }
     }
 
