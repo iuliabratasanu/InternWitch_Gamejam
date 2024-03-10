@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private void MixPotions()
     {
         string first = addedPotions[addedPotions.Count - 1];
