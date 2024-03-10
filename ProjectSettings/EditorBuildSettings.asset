@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/1_Introduction.unity
     guid: bd6bbe5a3af47174d9156bf990a0669a
   - enabled: 1
+    path: Assets/Scenes/2_Vlad.unity
+    guid: d705032bbace5ad48a33b7267cded955
+  - enabled: 0
     path: Assets/Scenes/2_PotionShop.unity
     guid: 9aeaa073476907e43a6fcac55859fc17
   - enabled: 1
