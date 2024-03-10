@@ -6,12 +6,10 @@ TagManager:
   tags:
   - IntroMusic
   - Pot
-  - RedPotion
-  - BluePotion
-  - YellowPotion
   - R
   - B
   - Y
+  - Page
   layers:
   - Default
   - TransparentFX
@@ -19,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - TextUI
   - 
   - 
   - 

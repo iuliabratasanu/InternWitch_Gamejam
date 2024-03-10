@@ -47,11 +47,11 @@ public class ClientManager : MonoBehaviour
         {
             MakeClientPrettier();
         }
-        if (currentOrder.desiredPotion == PotionType.purplePotion)
+        if (currentOrder.desiredPotion == PotionType.greenPotion)
         {
             MakeClientOlder();
         }
-        if (currentOrder.desiredPotion == PotionType.purplePotion)
+        if (currentOrder.desiredPotion == PotionType.orangePotion)
         {
             TransformToMonkey();
         }
