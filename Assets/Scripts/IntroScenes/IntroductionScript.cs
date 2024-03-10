@@ -7,7 +7,7 @@ public class IntroductionScript : MonoBehaviour
 {
     public void Continue()
     {
-        SceneManager.LoadScene("2_Vlad");
+        SceneManager.LoadScene(2);
     }
 
     public void Return()
