@@ -83,11 +83,14 @@ public class ClientMotion : MonoBehaviour
                 }
                 else
                 {
+                phase = 2;
                     clientManager.GetRandomOrder();
-                    // Call a function to hide the order display.
-                    HideOrderDisplay();
-                }
-            
+                // Call a function to hide the order display.
+                HideOrderDisplay();
+                phase = 2;
+
+            }
+
 
 
         }
