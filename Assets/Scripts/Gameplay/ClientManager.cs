@@ -28,17 +28,17 @@ public class ClientManager : MonoBehaviour
         possibleOrders[0] = new Order();
         possibleOrders[0].spriteIndex = 0;
         possibleOrders[0].desiredPotion = PotionType.purplePotion;
-        possibleOrders[0].requestName = "o generatie anterioara";
+        possibleOrders[0].requestName = "Help me hide. Fast.";
 
         possibleOrders[1] = new Order();
         possibleOrders[1].spriteIndex = 0;
         possibleOrders[1].desiredPotion = PotionType.orangePotion;
-        possibleOrders[1].requestName = "vreau sa arat mai bine";
+        possibleOrders[1].requestName = "Make me prettier, please!";
 
         possibleOrders[2] = new Order();
         possibleOrders[2].spriteIndex = 0;
         possibleOrders[2].desiredPotion = PotionType.greenPotion;
-        possibleOrders[2].requestName = "vreau sa evoluez";
+        possibleOrders[2].requestName = "Time travel would be nice.";
     }
 
     public void ReactToPotion()
